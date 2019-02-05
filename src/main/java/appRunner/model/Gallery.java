@@ -25,7 +25,7 @@ public class Gallery {
 	private String description;
 	
 	@Column
-	@OneToMany(mappedBy="galleryID", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="galleryID", fetch = FetchType.LAZY)
 	private Collection<PieceModel> pieces = new LinkedHashSet<PieceModel>();
 	
 	@Column
