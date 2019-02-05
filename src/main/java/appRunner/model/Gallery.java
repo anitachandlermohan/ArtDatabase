@@ -28,6 +28,17 @@ public class Gallery {
 	@OneToMany(mappedBy="galleryID", fetch = FetchType.EAGER)
 	private Collection<PieceModel> pieces = new LinkedHashSet<PieceModel>();
 	
+	@Column
+	private String imageRef;
+	
+	
+	public String getImageRef() {
+		return imageRef;
+	}
+	
+	public void setImageRef(String imageRef) {
+		this.imageRef = imageRef;
+	}
 	public String getName() {
 		return name;
 	}
