@@ -1,0 +1,17 @@
+
+:root{
+    --athensgray:#F6F6F9;
+    --contessa:#C6725F;
+    --gulfstream:#87B5B6;
+    --rum:#6A5E83;
+    --steelgray:#28233D;
+}
+
+
+.bg-dark{
+    background-color: var(--steelgray) !important;
+}
+
+.bg-light{
+    background-color:  var(--gulfstream) !important;
+}
