@@ -29,15 +29,15 @@ public class Gallery {
 	private Collection<PieceModel> pieces = new LinkedHashSet<PieceModel>();
 	
 	@Column
-	private String imageRef;
+	private String image_ref;
 	
 	
 	public String getImageRef() {
-		return imageRef;
+		return image_ref;
 	}
 	
-	public void setImageRef(String imageRef) {
-		this.imageRef = imageRef;
+	public void setImageRef(String image_ref) {
+		this.image_ref = image_ref;
 	}
 	public String getName() {
 		return name;
