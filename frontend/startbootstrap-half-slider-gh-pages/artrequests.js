@@ -71,10 +71,10 @@ function presentSearchResults(searchResults){
         gallery = gallery_array.find(item => item.id === galleryID);
         document.getElementById("searchresultsTable").innerHTML += (
             "<tr>" +
-                "<td>" + JSON.stringify(searchResults[i].name) +"</td>" +
-                "<td>" + JSON.stringify(searchResults[i].type) +"</td>" +
-                "<td>" + JSON.stringify(searchResults[i].description) +"</td>"+
-                 "<td>" + JSON.stringify(gallery.name) +"</td>" +
+                "<td>" + searchResults[i].name +"</td>" +
+                "<td>" + searchResults[i].type +"</td>" +
+                "<td>" + searchResults[i].description +"</td>"+
+                 "<td>" + gallery.name +"</td>" +
             "</tr>"                
 
         );
