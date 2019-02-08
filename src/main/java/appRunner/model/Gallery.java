@@ -5,7 +5,10 @@ import java.util.LinkedHashSet;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
+@DynamicUpdate
 @Table(name = "galleries")
 public class Gallery {
 	@Id

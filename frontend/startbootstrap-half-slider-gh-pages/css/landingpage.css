@@ -15,3 +15,7 @@
 .bg-light{
     background-color:  var(--gulfstream) !important;
 }
+
+.table-row{
+    cursor: pointer;
+}

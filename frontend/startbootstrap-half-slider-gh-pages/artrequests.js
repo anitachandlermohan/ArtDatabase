@@ -34,14 +34,21 @@ function loadGalleryDB(){
 }
 
 function searchPieceDB(){
-    let searchTerm = document.getElementById("searchTerm").value;
-    console.log(searchTerm);
+    let searchTerm = document.getElementById("searchTerm").value.toLowerCase();
     let searchResults = [];
     for(let i = 0; i<piece_array.length;i++){
-        
+        galleryID = piece_array[i].gallery;
+        gallery = gallery_array.find(item => item.id === galleryID);
         let piece = piece_array[i];
-        
-        if( piece.type === searchTerm ){
+        let pieceType = JSON.stringify(piece.type).toLowerCase();
+        let pieceName = JSON.stringify(piece.name).toLowerCase();
+        let pieceArtist = JSON.stringify(piece.artist).toLowerCase();
+        let pieceGallery = JSON.stringify(gallery.name).toLowerCase();
+        let pieceCountry = JSON.stringify(gallery.country).toLowerCase();
+        let pieceCity = JSON.stringify(gallery.city).toLowerCase();
+
+        if(pieceType.includes(searchTerm)|| pieceName.includes(searchTerm)|| pieceArtist.includes(searchTerm)
+        || pieceGallery.includes(searchTerm)|| pieceCountry.includes(searchTerm)|| pieceCity.includes(searchTerm)){
             searchResults.push(piece);
             
         }
@@ -56,54 +63,28 @@ function presentSearchResults(searchResults){
     let table_body = document.createElement("TBODY");
     
     document.getElementById("searchresults").innerHTML = (
-        "<table id ='searchresultsTable' class ='table'>" + 
-            "<tr>" +
+        "<table id ='searchresultsTable' class ='table table-hover row-clickable'>" + 
+            "<thead>" +
                 "<th>Name</th>" +
                 "<th>Description</th>" +
                 "<th>Type</th>"+ 
                  "<th>Gallery</th>"+ 
-            "</tr>" +
+            "</thead>" +
         "</table>"
     );
     for(let i in searchResults){
         galleryID = searchResults[i].gallery;
-        console.log(galleryID);
         gallery = gallery_array.find(item => item.id === galleryID);
         document.getElementById("searchresultsTable").innerHTML += (
-            "<tr>" +
+            "<tr class ='table-row' data-href='#' onclick='generateResult("+ JSON.stringify(searchResults[i]) + ")'>" +
                 "<td>" + searchResults[i].name +"</td>" +
-                "<td>" + searchResults[i].type +"</td>" +
-                "<td>" + searchResults[i].description +"</td>"+
+                "<td>" + searchResults[i].description +"</td>" +
+                "<td>" + searchResults[i].type +"</td>"+
                  "<td>" + gallery.name +"</td>" +
             "</tr>"                
 
         );
         
-    //     let row = document.createElement("TR");
-    //             // title column //
-    //             let title_cell = document.createElement("TD");
-    //             let title_cell_text = document.createTextNode( JSON.stringify(searchResults[i].name));
-    //             title_cell.appendChild(title_cell_text);
-    //             row.appendChild(title_cell);
-
-    //             // description column //
-    //             let desc_cell = document.createElement("TD");
-    //             let desc_cell_text = document.createTextNode(JSON.stringify(searchResults[i].type));
-    //             desc_cell.appendChild(desc_cell_text);
-    //             row.appendChild(desc_cell);
-
-    //              //category //
-    //             let cat_cell = document.createElement("TD");
-    //             let cat_cell_text = document.createTextNode(JSON.stringify(searchResults[i].artist));
-    //             cat_cell.appendChild(cat_cell_text);
-    //             row.appendChild(cat_cell);
-
-    //             //append this row to table// 
-    //             table_body.appendChild(row);
-    // }
-
-    // resulttable.appendChild(table_body);
-    // document.getElementById("searchresultsTable").appendChild(resulttable);
 }
 
 function clearSearch(){
@@ -114,4 +95,24 @@ function clearSearch(){
         firstnode = tablenode.firstChild;
     }
 }
+}
+$(document).ready(function($){
+$(".table-row").click(function (){
+    window.document.location = 
+    $(this).data("href");
+    });
+});
+
+function generateResult(result){
+    let piecename = document.getElementById("name");
+    let pieceimage = document.getElementById("picture");
+    let pieceartist = document.getElementById("artist");
+        piecename.innerHTML = ("<h2>" + result.name +"</h2>" );
+        pieceimage.innerHTML = ("<img src ='" + result.imageRef + "' class ='img-fluid'>");
+        piecename.innerHTML += ( "<p>"+ result.artist + "</p>");
+
+
+}
+function functionn(){
+console.log("Hi!");
 }
