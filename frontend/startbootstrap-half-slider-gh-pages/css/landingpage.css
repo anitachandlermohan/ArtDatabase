@@ -19,3 +19,6 @@
 .table-row{
     cursor: pointer;
 }
+html {
+    scroll-behavior: smooth;
+}

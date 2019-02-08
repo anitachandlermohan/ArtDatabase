@@ -84,7 +84,7 @@ function presentSearchResults(searchResults){
             "</tr>"                
 
         );
-        
+     document.getElementById("searchresults").scrollIntoView();   
 }
 
 function clearSearch(){
@@ -104,15 +104,45 @@ $(".table-row").click(function (){
 });
 
 function generateResult(result){
-    let piecename = document.getElementById("name");
+    let pieceDesc = document.getElementById("description");
     let pieceimage = document.getElementById("picture");
-    let pieceartist = document.getElementById("artist");
-        piecename.innerHTML = ("<h2>" + result.name +"</h2>" );
+    let galleryID = result.gallery;
+    let gallery = gallery_array.find(item => item.id === galleryID);
+    let pageurl=  "gallerypage.html";
+     galleryURL = passParameters(galleryID, pageurl)
+        pieceDesc.innerHTML = ("<h2>" + result.name +"</h2>" );
         pieceimage.innerHTML = ("<img src ='" + result.imageRef + "' class ='img-fluid'>");
-        piecename.innerHTML += ( "<p>"+ result.artist + "</p>");
+        pieceDesc.innerHTML += ( "<p>"+ result.artist + "</p>");
+        pieceDesc.innerHTML += ("<p>" + result.description + "</p>");
+        pieceDesc.innerHTML += ("<a href =" + galleryURL + ">" + gallery.name + "</a>");
+       
+    document.getElementById("showmore").scrollIntoView();
+    
+}
 
+function passParameters(parameter,pageurl){
+    let querystring = "?gallery=" + parameter;
+    let newURL = pageurl + querystring;
+    return newURL;
+}
+
+function getURLparams(variable){
+    let query = window.location.search.substring(1);
+    let urlparam = query.split("&");
+    for (let i = 0; i <urlparam.length; i++){
+        let keyvaluepair = urlparam[i].split("=");
+        if(keyvaluepair[0] == variable){
+            return keyvaluepair[1];
+        }
+    }
+    return(false);
 
 }
-function functionn(){
-console.log("Hi!");
+
+function generateGalleryPage(){
+    variable = "gallery"
+    let galleryID = getURLparams(variable);
+    document.getElementById("content").innerHTML += ("<p>" + galleryID + "</p>")
+
+
 }
