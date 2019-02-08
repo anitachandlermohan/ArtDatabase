@@ -14,9 +14,10 @@ function loadPieceDB(){
     }
     xhttp.open("GET", url, true);
     xhttp.send();
+    
 }
 
-function loadGalleryDB(){
+function loadGalleryDB(callback){
     let xhttp = new XMLHttpRequest();
     let url = "http://localhost:8080/api/Gallery";
     xhttp.onreadystatechange = function(){
@@ -30,7 +31,11 @@ function loadGalleryDB(){
     }
     xhttp.open("GET", url, true);
     xhttp.send();
-
+    
+    if(callback){
+       
+    callback();
+    }
 }
 
 function searchPieceDB(){
@@ -61,7 +66,7 @@ function presentSearchResults(searchResults){
 
     let resulttable = document.createElement("TABLE");
     let table_body = document.createElement("TBODY");
-    
+   
     document.getElementById("searchresults").innerHTML = (
         "<table id ='searchresultsTable' class ='table table-hover row-clickable'>" + 
             "<thead>" +
@@ -75,6 +80,7 @@ function presentSearchResults(searchResults){
     for(let i in searchResults){
         galleryID = searchResults[i].gallery;
         gallery = gallery_array.find(item => item.id === galleryID);
+
         document.getElementById("searchresultsTable").innerHTML += (
             "<tr class ='table-row' data-href='#' onclick='generateResult("+ JSON.stringify(searchResults[i]) + ")'>" +
                 "<td>" + searchResults[i].name +"</td>" +
@@ -140,9 +146,15 @@ function getURLparams(variable){
 }
 
 function generateGalleryPage(){
-    variable = "gallery"
-    let galleryID = getURLparams(variable);
-    document.getElementById("content").innerHTML += ("<p>" + galleryID + "</p>")
-
+   
+    let galleryID = getURLparams("gallery");
+    gallery = gallery_array.find(item => item.id === galleryID);
+    console.log(gallery);
+    
+     document.getElementById("content").innerHTML += ("<h1>" + "what" + "</h1>")
+     document.getElementById("headerimage").innerHTML += (
+         "<img src = '" + "crap" + "' class = img-responsive>"
+     )
 
 }
+    
