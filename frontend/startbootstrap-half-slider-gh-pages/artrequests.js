@@ -17,7 +17,7 @@ function loadPieceDB(){
     
 }
 
-function loadGalleryDB(callback){
+function loadGalleryDB(){
     let xhttp = new XMLHttpRequest();
     let url = "http://localhost:8080/api/Gallery";
     xhttp.onreadystatechange = function(){
@@ -31,15 +31,12 @@ function loadGalleryDB(callback){
     }
     xhttp.open("GET", url, true);
     xhttp.send();
-    
-    if(callback){
-       
-    callback();
-    }
+    return gallery_array;
+   
 }
 
-function searchPieceDB(){
-    let searchTerm = document.getElementById("searchTerm").value.toLowerCase();
+function searchPieceDB(searchTerm){
+    // let searchTerm = document.getElementById("searchTerm").value.toLowerCase();
     let searchResults = [];
     for(let i = 0; i<piece_array.length;i++){
         galleryID = piece_array[i].gallery;
@@ -51,11 +48,10 @@ function searchPieceDB(){
         let pieceGallery = JSON.stringify(gallery.name).toLowerCase();
         let pieceCountry = JSON.stringify(gallery.country).toLowerCase();
         let pieceCity = JSON.stringify(gallery.city).toLowerCase();
-
+        
         if(pieceType.includes(searchTerm)|| pieceName.includes(searchTerm)|| pieceArtist.includes(searchTerm)
         || pieceGallery.includes(searchTerm)|| pieceCountry.includes(searchTerm)|| pieceCity.includes(searchTerm)){
-            searchResults.push(piece);
-            
+            searchResults.push(piece);   
         }
     }
    presentSearchResults(searchResults); 
@@ -115,7 +111,7 @@ function generateResult(result){
     let galleryID = result.gallery;
     let gallery = gallery_array.find(item => item.id === galleryID);
     let pageurl=  "gallerypage.html";
-     galleryURL = passParameters(galleryID, pageurl)
+     galleryURL = passGalleryParameters(galleryID, pageurl)
         pieceDesc.innerHTML = ("<h2>" + result.name +"</h2>" );
         pieceimage.innerHTML = ("<img src ='" + result.imageRef + "' class ='img-fluid'>");
         pieceDesc.innerHTML += ( "<p>"+ result.artist + "</p>");
@@ -126,11 +122,12 @@ function generateResult(result){
     
 }
 
-function passParameters(parameter,pageurl){
+function passGalleryParameters(parameter,pageurl){
     let querystring = "?gallery=" + parameter;
     let newURL = pageurl + querystring;
     return newURL;
 }
+
 
 function getURLparams(variable){
     let query = window.location.search.substring(1);
@@ -144,17 +141,24 @@ function getURLparams(variable){
     return(false);
 
 }
-
-function generateGalleryPage(){
-   
-    let galleryID = getURLparams("gallery");
-    gallery = gallery_array.find(item => item.id === galleryID);
-    console.log(gallery);
-    
-     document.getElementById("content").innerHTML += ("<h1>" + "what" + "</h1>")
-     document.getElementById("headerimage").innerHTML += (
-         "<img src = '" + "crap" + "' class = img-responsive>"
-     )
-
+function useURLsearchparams(){
+    loadPieceDB();
+    loadGalleryDB();
+    if(window.location.href.indexOf("search")> -1){
+    let searchTerm = getURLparams("search").toLowerCase();
+    searchPieceDB(searchTerm);
+    }
 }
+// function generateGalleryPage(){
+   
+//     let galleryID = getURLparams("gallery");
+//     gallery = gallery_array.find(item => item.id === galleryID);
+//     console.log(gallery_array.length);
+    
+     
+//      )
+
+// }
+
+
     
