@@ -37,6 +37,16 @@ public class PieceModel {
 		return image_ref;
 	}
 	
+	public PieceModel(String name, String type, String artist) {
+		this.name = name;
+		this.type = type;
+		this.artist = artist;
+		
+	}
+	
+	public PieceModel() {
+		
+	}
 	public void setImageRef(String image_ref) {
 		this.image_ref = image_ref;
 	}

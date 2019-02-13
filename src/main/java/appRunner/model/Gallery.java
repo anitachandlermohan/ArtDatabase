@@ -35,6 +35,14 @@ public class Gallery {
 	private String image_ref;
 	
 	
+	public Gallery(String name, String country) {
+		this.name = name;
+		this.country = country;
+	}
+	
+	public Gallery() {
+		
+	}
 	public String getImageRef() {
 		return image_ref;
 	}
