@@ -161,4 +161,36 @@ function useURLsearchparams(){
 // }
 
 
+ function getRandom(items){
+     return items[Math.floor(Math.random()*items.length)];
+ } 
+
+ function populateCarousel(){
+     let carousel1 = getRandom(piece_array);
+     let carousel2 = getRandom(piece_array);
+     let carousel3 = getRandom(piece_array);
+     let carousel1div = document.getElementById("carousel1");
+     let carousel2div = document.getElementById("carousel2");
+     let carousel3div = document.getElementById("carousel3");
+     carousel1div.style.backgroundImage = "url("+ carousel1.imageRef+ ")";
+     carousel1div.style.backgroundPosition = "center top";
+
+     carousel2div.style.backgroundImage = "url("+ carousel2.imageRef+ ")";
+     carousel2div.style.backgroundPosition = "center top";
+
+     carousel3div.style.backgroundImage = "url("+ carousel3.imageRef+ ")";
+     carousel3div.style.backgroundPosition = "center top";
+     
+    carousel1div.innerHTML += "<div class='carousel-caption d-none d-md-block'>"
+               +"<h3>"+ carousel1.name + "</h3>"
+              + "<p>"+ carousel1.artist + "</p></div>"
     
+     carousel2div.innerHTML += "<div class='carousel-caption d-none d-md-block'>"
+               +"<h3>"+ carousel2.name + "</h3>"
+              + "<p>"+ carousel2.artist + "</p></div>"
+     carousel3div.innerHTML += "<div class='carousel-caption d-none d-md-block'>"
+               +"<h3>"+ carousel3.name + "</h3>"
+              + "<p>"+ carousel3.artist + "</p></div>"
+                    
+
+ }

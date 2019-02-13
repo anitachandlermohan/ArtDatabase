@@ -9,9 +9,10 @@ function loadGalleryDB(){
         if(xhttp.readyState ==4 && xhttp.status == 200){
             let gallery_list = JSON.parse(xhttp.responseText);
             for(let i in gallery_list){
-                document.getElementById("gallerycards").innerHTML += "<div class = 'card mb-3'>" 
+                let galleryURL = passGalleryParameters(gallery_list[i].id, "gallerypage.html" );
+                document.getElementById("gallerycards").innerHTML += "<a href = '"+galleryURL+ "' class = 'card mb-3'>" 
                 +  "<img class = 'card-img-top' src=" + gallery_list[i].imageRef + ">"
-                + "<div class='card-body'><h1 class='card-text'>" + gallery_list[i].name + "</h1></div>";
+                + "<div class='card-body'><h1 class='card-text'>" + gallery_list[i].name + "</h1></div></a>";
             }
         }
     }
@@ -59,6 +60,11 @@ function getGalleryByID(){
 
 
 
+function passGalleryParameters(parameter,pageurl){
+    let querystring = "?gallery=" + parameter;
+    let newURL = pageurl + querystring;
+    return newURL;
+}
 function passSearchParameters(){
     
     let searchTerm = document.getElementById("searchTerm").value;
@@ -71,4 +77,10 @@ function passSearchParameters(){
 function presentAllGalleries(){
 
 }
+$(document).ready(function($){
+$(".card").click(function (){
+    window.document.location = 
+    $(this).data("href");
+    });
+});
    
