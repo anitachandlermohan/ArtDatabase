@@ -2,6 +2,7 @@ package appRunner.model;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -10,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
+@DynamicUpdate
 @Table(name = "piece")
 public class PieceModel {
 	@Id
