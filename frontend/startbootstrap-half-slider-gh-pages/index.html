@@ -20,7 +20,7 @@
    
   </head>
 
-  <body onload = "loadPieceDB(), loadGalleryDB()">
+  <body onload = "loadPieceDB(), loadGalleryDB(), setTimeout(useURLsearchparams,0), setTimeout(populateCarousel,0)" >
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -29,7 +29,7 @@
           <script src = "artrequests.js"></script>
         <form class ="form-inline">
         <input type ="text" class="form-control mr-sm-2" placeholder =" search for art " id="searchTerm"/>
-        <button class = "btn btn-secondary" onClick = " searchPieceDB()">search</button>
+        <button type ="button" class = "btn btn-secondary" onClick = " searchPieceDB(document.getElementById('searchTerm').value.toLowerCase())">search</button>
           </form>
       </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,19 +38,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="index.html">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+         
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="allgalleries.html">Galleries</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
+            
           </ul>
         </div>
       </div>
@@ -64,26 +60,17 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>First Slide</h3>
-              <p>This is a description for the first slide.</p>
-            </div>
+          
+          <div class="carousel-item active" id = "carousel1" >
+            
           </div>
-          <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
-            </div>
+         
+          <div class="carousel-item" id = "carousel2" >
+            
           </div>
-          <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
-            </div>
+         
+          <div class="carousel-item" id = "carousel3">
+            
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -110,6 +97,26 @@
         <section class= "container" id = "searchresults">
         </section>
       </div>
+      <div>
+        <section id="showmore">
+          <!--image and piece name   -->
+          <div class ="container">
+            <div class ="row">
+              <div class = "col" id = "picture">
+              </div>
+              <div class = "col" id ="description">
+                <div class = "row">
+                  <div class = "col" id ="name"></div>
+                  <div class = "col"></div>
+                </div>
+                <div class = "row">
+                  <div class = "col-sm-2"> </div>
+                  <div class = "col-sm-2" id= "artist"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
     </div>
     </section>
 

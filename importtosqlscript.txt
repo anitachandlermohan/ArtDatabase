@@ -1,0 +1,6 @@
+LOAD DATA LOCAL INFILE 'C:/Users/Admin/Projects/ArtDatabase/databaseinfo/testdata.csv'
+     INTO TABLE piece
+    FIELDS TERMINATED BY ','
+     ENCLOSED BY '"'
+   LINES TERMINATED BY '\n'
+    IGNORE 1 ROWS;
