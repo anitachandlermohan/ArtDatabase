@@ -69,7 +69,7 @@ function generateGalleryPage(name,city,country,image, description){
 
 function passSearchParameters(){
     
-    let searchTerm = document.getElementById("searchTerm").value;
+    let searchTerm = document.getElementById("searchTerm").value.toLowerCase();
     let querystring = "?search=" + searchTerm;
     let newURL = "index.html" + querystring;
     console.log(newURL);

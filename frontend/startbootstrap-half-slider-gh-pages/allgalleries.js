@@ -10,8 +10,8 @@ function loadGalleryDB(){
             let gallery_list = JSON.parse(xhttp.responseText);
             for(let i in gallery_list){
                 let galleryURL = passGalleryParameters(gallery_list[i].id, "gallerypage.html" );
-                document.getElementById("gallerycards").innerHTML += "<a href = '"+galleryURL+ "' class = 'card mb-3'>" 
-                +  "<img class = 'card-img-top' src=" + gallery_list[i].imageRef + ">"
+                document.getElementById("gallerycards").innerHTML += "<a href = '"+galleryURL+ "' class = 'card bg-dark text-white mb-3'>" 
+                +  "<img class = 'card-img-top lazy-load' src=" + gallery_list[i].imageRef + ">"
                 + "<div class='card-body'><h1 class='card-text'>" + gallery_list[i].name + "</h1></div></a>";
             }
         }
@@ -67,7 +67,7 @@ function passGalleryParameters(parameter,pageurl){
 }
 function passSearchParameters(){
     
-    let searchTerm = document.getElementById("searchTerm").value;
+    let searchTerm = document.getElementById("searchTerm").value.toLowerCase();
     let querystring = "?search=" + searchTerm;
     let newURL = "index.html" + querystring;
     console.log(newURL);

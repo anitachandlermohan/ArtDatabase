@@ -9,6 +9,7 @@ function loadPieceDB(){
             let piece_list = JSON.parse(xhttp.responseText);
             for(let i in piece_list){
                 piece_array.push(piece_list[i]);
+                
             }
         }
     }
@@ -52,6 +53,7 @@ function searchPieceDB(searchTerm){
         if(pieceType.includes(searchTerm)|| pieceName.includes(searchTerm)|| pieceArtist.includes(searchTerm)
         || pieceGallery.includes(searchTerm)|| pieceCountry.includes(searchTerm)|| pieceCity.includes(searchTerm)){
             searchResults.push(piece);   
+            
         }
     }
    presentSearchResults(searchResults); 
@@ -67,22 +69,25 @@ function presentSearchResults(searchResults){
         "<table id ='searchresultsTable' class ='table table-hover row-clickable'>" + 
             "<thead>" +
                 "<th>Name</th>" +
-                "<th>Description</th>" +
-                "<th>Type</th>"+ 
+                
+                "<th>Artist</th>"+ 
+                "<th>Type</th>" +
                  "<th>Gallery</th>"+ 
             "</thead>" +
         "</table>"
     );
     for(let i in searchResults){
+       
         galleryID = searchResults[i].gallery;
         gallery = gallery_array.find(item => item.id === galleryID);
 
         document.getElementById("searchresultsTable").innerHTML += (
             "<tr class ='table-row' data-href='#' onclick='generateResult("+ JSON.stringify(searchResults[i]) + ")'>" +
                 "<td>" + searchResults[i].name +"</td>" +
-                "<td>" + searchResults[i].description +"</td>" +
-                "<td>" + searchResults[i].type +"</td>"+
-                 "<td>" + gallery.name +"</td>" +
+               
+                "<td>" + searchResults[i].artist +"</td>"+
+                 "<td>" + searchResults[i].type +"</td>" +
+                 "<td>" + gallery.name +", "+ gallery.country +  "</td>" +
             "</tr>"                
 
         );
@@ -116,7 +121,7 @@ function generateResult(result){
         pieceimage.innerHTML = ("<img src ='" + result.imageRef + "' class ='img-fluid'>");
         pieceDesc.innerHTML += ( "<p>"+ result.artist + "</p>");
         pieceDesc.innerHTML += ("<p>" + result.description + "</p>");
-        pieceDesc.innerHTML += ("<a href =" + galleryURL + ">" + gallery.name + "</a>");
+        pieceDesc.innerHTML += ("<p>Currently displayed in: </br><a href =" + galleryURL + ">" + gallery.name + "</a></p>");
        
     document.getElementById("showmore").scrollIntoView();
     
@@ -142,24 +147,14 @@ function getURLparams(variable){
 
 }
 function useURLsearchparams(){
-    loadPieceDB();
-    loadGalleryDB();
+   
     if(window.location.href.indexOf("search")> -1){
     let searchTerm = getURLparams("search").toLowerCase();
     searchPieceDB(searchTerm);
     }
-}
-// function generateGalleryPage(){
-   
-//     let galleryID = getURLparams("gallery");
-//     gallery = gallery_array.find(item => item.id === galleryID);
-//     console.log(gallery_array.length);
+
     
-     
-//      )
-
-// }
-
+}
 
  function getRandom(items){
      return items[Math.floor(Math.random()*items.length)];

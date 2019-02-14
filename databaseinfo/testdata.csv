@@ -1,2 +1,7 @@
 artist,description,name,type,galleryID,imageRef
-Leonardo Da Vinci,Da Vinci's best known work,Mona Lisa,Painting,,C:\Users\Admin\Projects\ArtDatabase\frontend\startbootstrap-half-slider-gh-pages\images\pieces\monalisa.jpg
+Leonardo Da Vinci,One of the most famous pieces of Renaissance artwork,Mona Lisa,Painting,,C:\Users\Admin\Projects\ArtDatabase\frontend\startbootstrap-half-slider-gh-pages\images\pieces\monalisa.jpg
+Edvard Munch,An iconic portrayal of existential angst,The Scream,Painting,,C:\Users\Admin\Projects\ArtDatabase\frontend\startbootstrap-half-slider-gh-pages\images\pieces\thescream.jpg
+Vincent Van Gogh,A post-impressionist landscape in oil of the view from Van Goghs asylum room,The Starry Night,Painting,,C:\Users\Admin\Projects\ArtDatabase\frontend\startbootstrap-half-slider-gh-pages\images\pieces\monalisa.jpgpages\images\pieces\starrynight.jpg
+unknown,"One of the most famous examples of ancient Greek sculpture
+
+",venus de milo,sculpture,,images/pieces/venusdemilo.jpg

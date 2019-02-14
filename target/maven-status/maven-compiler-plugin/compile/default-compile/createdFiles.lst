@@ -3,7 +3,6 @@ appRunner\controller\PieceController.class
 appRunner\model\Gallery.class
 appRunner\controller\GalleryController.class
 appRunner\model\PieceModel.class
-appRunner\controller\controller\PieceController.class
 appRunner\repository\PieceRepository.class
 appRunner\exception\ResourceNotFoundException.class
 appRunner\repository\GalleryRepository.class
