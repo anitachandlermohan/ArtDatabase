@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Search for Art</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    
+    <link href="css/half-slider.css" rel="stylesheet">
+    <link href ="css/landingpage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
+  </head>
+  <script src = "createGallery.js"></script>
+  <body >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <div class = "float-left ">
+          
+        <form class ="form-inline">
+           <span class = "navbar-brand mb-0 h1 brand"> <i class = "fas fa-globe-americas"></i> Art Atlas</span>
+        <input type ="text" class="form-control mr-sm-2" placeholder =" search for art " id="searchTerm"/>
+        <button type ="button" class = "btn btn-secondary" onClick = "document.location.href = passSearchParameters();">search</button>
+          </form>
+      </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="allgalleries.html">Galleries</a>
+            </li>
+      
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div class = "header-container" id = "headerimage">
+        <div class = "text-block" id ="headertext">
+           hello
+        </div>
+       </div>
+              
+    </header>
+    </br>
+    <!-- Page Content -->
+    <section class="py-5 ">
+
+      <div class="container" id ="content">
+          <form>
+              <div class = "form-group row">
+                  <label for ="galleryName" class ="col-2 col-form-label">Gallery Name </label>
+                   <div class = "col-sm-10">
+                       <input type ="galleryname" class = "form-control" id = "galleryName" placeholder="Gallery Name">
+                   </div>
+              </div>
+
+              <div class = "form-group row">
+                  <label for ="country" class ="col-2 col-form-label"> Country </label>
+                   <div class = "col-sm-10">
+                       <input type ="country" class = "form-control" id = "country" placeholder="Country">
+                   </div>
+              </div>
+
+              <div class = "form-group row">
+                  <label for ="city" class ="col-2 col-form-label">City</label>
+                   <div class = "col-sm-10">
+                       <input type ="city" class = "form-control" id = "city" placeholder="city">
+                   </div>
+              </div>
+
+              <div class = "form-group row">
+                  <label for ="description" class ="col-2 col-form-label">Description </label>
+                   <div class = "col-sm-10">
+                       <input type ="description" class = "form-control" id = "description" placeholder="Description">
+                   </div>
+              </div>
+
+              <div class = "form-group row">
+                  <label for ="imageRef" class ="col-2 col-form-label">Image Reference</label>
+                   <div class = "col-sm-10">
+                       <input type ="imageRef" class = "form-control" id = "imageRef" placeholder="Image Reference">
+                   </div>
+              </div>
+              
+               <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button type="button" class="btn btn-primary" id="addgallery" onclick = "sendGallery()">Add Gallery</button>
+                </div>
+                </div>
+              
+            </form>
+     
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Anita Mohan</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script language = 'javascript'>
+</script>
+  </body>
+
+</html>
