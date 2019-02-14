@@ -26,7 +26,7 @@ function sendGallery(){
     request.setRequestHeader('Access-Control-Allow-Origin', '*');
     request.send( jsonGallery);
     console.log(JSON.stringify(gallery));
-
+    let content = document.getElementById("content").innerHTML += "<h1>Gallery Created!</h1>";
 
 }
 
@@ -40,6 +40,15 @@ function passSearchParameters(){
     let newURL = "index.html" + querystring;
     console.log(newURL);
     return newURL;
+}
+
+function clearForm(){
+    document.getElementById("galleryName").innerHTML = "";
+    document.getElementById("description").innerHTML= "";
+    document.getElementById("city").innerHTML = "";
+    document.getElementById("country").innerHTML= "";
+    document.getElementById("imageRef").innerHTML= "";
+
 }
 
 
