@@ -76,3 +76,6 @@ a.card:hover {
     color: #212529;
     text-decoration:none;
 }
+h1.brand {
+    font-family :'Times New Roman', Times, serif; 
+}

@@ -1,0 +1,7 @@
+test\integration\PieceIntegrationTest.class
+mastertestsuite\MasterSuite.class
+test\integration\GalleryIntegrationTest.class
+test\repo\GalleryRepoTest.class
+test\repo\RepoTestSuite.class
+test\integration\IntegrationTest.class
+test\repo\PieceRepoTest.class
